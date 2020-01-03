@@ -12,6 +12,7 @@ import {
 
 import { Link } from 'react-router-dom';
 import AuthModal from '../components/AuthModal';
+//import UploadPage from '../pages/UploadPage'
 
 
 
@@ -45,6 +46,12 @@ const MyNav = ({currentUser,setCurrentUser}) => {
                   {/* <Link to="/">Go to Home</Link> */}
                   <NavLink tag={Link} to="/">
                     Home
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  {/* <Link to="/">Go to Home</Link> */}
+                  <NavLink href="Upload">
+                    Upload
                   </NavLink>
                 </NavItem>
                 {currentUser.user ?

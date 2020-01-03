@@ -11,6 +11,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
 // import UserProfilePage from './pages/UserProfilePage';
 import MyProfilePage from './pages/MyProfilePage';
+import UploadPage from './pages/UploadPage';
 const AuthContext = createContext(null)
 
 
@@ -60,6 +61,9 @@ const App = () => {
        </Route>
         <Route path="/me">
           <MyProfilePage/>
+        </Route>
+        <Route path="/upload">
+          <UploadPage/>
         </Route>
       </Switch>
     </AuthContext.Provider>
