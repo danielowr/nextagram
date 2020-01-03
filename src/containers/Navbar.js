@@ -50,7 +50,7 @@ const MyNav = ({currentUser,setCurrentUser}) => {
                 </NavItem>
                 <NavItem>
                   {/* <Link to="/">Go to Home</Link> */}
-                  <NavLink href="Upload">
+                  <NavLink href="upload">
                     Upload
                   </NavLink>
                 </NavItem>

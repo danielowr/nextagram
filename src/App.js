@@ -62,7 +62,7 @@ const App = () => {
         <Route path="/me">
           <MyProfilePage/>
         </Route>
-        <Route path="/upload">
+        <Route exact path="/upload">
           <UploadPage/>
         </Route>
       </Switch>
