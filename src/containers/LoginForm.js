@@ -12,7 +12,7 @@ sessionStorage.getItem('clickCount') // 10, but this data is deleted when user c
   localStorage.setItem('jwt', result.data.auth_token)
 })*/
 
-const LoginForm =({ toggleModal }) => {
+const LoginForm =({ toggleModal,currentUser,setCurrentUser }) => {
     const history = useHistory()
  
     const [userInfo, setUserInfo] = useState({
@@ -40,7 +40,8 @@ const handleSubmit = e => {
         console.log(result)
         console.log(user)
         console.log(message)
-
+        localStorage.setItem("user",JSON.stringify(user))
+        localStorage.setItem("jwt",result.data.auth_token)
         setLoading(false)
         toast.success("Logged in successfully! Welcome back, we've missed you", {
           position: "top-right",
@@ -51,6 +52,10 @@ const handleSubmit = e => {
           draggable: true
 
         });
+        setCurrentUser({
+          user:user,
+          jwt:result.data.auth_token
+        })
          // show popup message
         toggleModal() // close modal
         history.push(`/users/${user.id}`) // go to user profile page

@@ -24,14 +24,14 @@ const AuthModal = props => {
   const logout = () => alert('logged out')
 
   return (
-  <div>
-          {localStorage.jwt ? (
+    
+   /*{localStorage.jwt ? (
         <a href="#" className="nav-link" onClick={logout}>
           Log out
         </a>
       ) : (
         <a href="#" className="nav-link" onClick={toggleModal}></a>
-      <>
+    
         {!currentUser.jwt && (
           <a
             href="/"
@@ -47,9 +47,9 @@ const AuthModal = props => {
         <Modal>
           <SignUpForm toggleModal={toggleModal} toggleForm={toggleForm} />
       )}
-      </Modal>
-  </div>
-      )}
+        </Modal> */
+
+      
           
     <>
       <NavItem>
@@ -58,7 +58,7 @@ const AuthModal = props => {
       <Modal isOpen={showModal} toggle={toggleModal}>
         <ModalHeader toggle={toggleModal}>Reactagram</ModalHeader>
         <ModalBody>
-          {showLogin ? <LoginForm toggleModal={toggleModal}/> : <SignUpForm toggleModal={toggleModal}/> }
+          {showLogin ? <LoginForm currentUser={props.currentUser} setCurrentUser={props.setCurrentUser} toggleModal={toggleModal}/> : <SignUpForm toggleModal={toggleModal}/> }
           <a onClick={toggleForm} className="d-block" href="#">
             {showLogin
               ? 'Not a member? Click here to sign up!'

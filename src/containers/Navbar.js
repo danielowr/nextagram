@@ -15,11 +15,17 @@ import AuthModal from '../components/AuthModal';
 
 
 
-const MyNav = () => {
+const MyNav = ({currentUser,setCurrentUser}) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
-
+    const handleLogout = () =>{
+      localStorage.clear()
+      setCurrentUser({
+        user :null,
+        jwt:undefined
+      })
+    }
     return (
         <div id="nav">
           <Navbar color="transparent" light expand="md">
@@ -41,7 +47,14 @@ const MyNav = () => {
                     Home
                   </NavLink>
                 </NavItem>
-                <AuthModal />
+                {currentUser.user ?
+                <NavItem onClick={handleLogout}>
+                  <NavLink href="#">
+                    Logout
+                  </NavLink>
+                </NavItem>
+                : <AuthModal currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+                }
               </Nav>
             </Collapse>
           </Navbar>
